@@ -1,0 +1,12 @@
+vector<int> Solution::searchRange(const vector<int> &A, int B) {
+    
+    if(!binary_search(A.begin(),A.end(),B)){
+        return {-1,-1};
+    }
+    
+    auto start = A.begin();
+    auto lb = lower_bound(A.begin(),A.end(),B);
+    auto ub = upper_bound(A.begin(),A.end(),B);
+    
+    return {lb-start,ub-start-1};
+}
